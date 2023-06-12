@@ -1,0 +1,151 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+" set scrolloff=5
+
+" Do incremental searching.
+" set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+" map Q gq
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+""" User configuration
+""" Set leader key ------------------------------
+let mapleader=" "
+map <space> <nop>
+
+""" Plugins
+set surround
+set easymotion
+" set multiple-cursors
+" use the native multicursor function instead
+set commentary
+set argtextobj
+set exchange
+set highlightedyank
+" set which-key
+
+
+""" Plugin settings -----------------------------
+""" argtextobj: the functionality of argtextobj to other brackets
+let g:argtextobj_pairs="[:],(:),<:>"
+""" vim-highlightedyank: optimize highlight duration
+let g:highlightedyank_highligh_duration = "3000"
+""" multicursor
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<C-q>'
+
+""" Common settings -----------------------------
+set number
+set relativenumber
+set timeoutlen=1000
+set showmode
+set so=8
+set ignorecase
+set hlsearch
+set incsearch
+set autoindent
+set cindent
+set nu
+
+""" IDEA specific settings
+set ideajoin
+set ideastatusicon=gray
+
+""" Use jj to exit insert/visual mode
+imap jj <Esc>
+
+""" Set H/L to ^/$
+map H ^
+map L $
+vmap H ^
+vmap L $
+
+""" Set <C-u>/<C-d> to 9k/9j
+map <C-u> 9k
+vmap <C-u> 9k
+map <C-d> 9j
+vmap <C-d> 9j
+
+""" set U to redo
+map U <C-R>
+
+""" Keymappings --------------------------------
+map <leader>o <Action>(RecentProjectListGroup)
+
+map <leader>nh :nohl<Cr>
+
+""" Easymotion
+map <leader>hf <Plug>(easymotion-s)v
+map <leader>he <Plug>(easymotion-f)v
+
+"" Multiple cursors
+" map <C-n> <Plug>(multicursor-ms/)
+" xmap <C-n> <Plug>(multicursor-ms/)
+" map <C-x> <Plug>(RemoveOccurrence)
+" xmap <C-x> <Plug>(RemoveOccurrence)
+" map <C-q> <Plug>(SkipOccurence)
+" xmap <C-q> <Plug>(SkipOccurence)
+" map <S-C-n> <Plug>(AllWholeOccurrence)
+" xmap <S-C-n> <Plug>(AllWholeOccurrence)
+
+map <leader>rn <Action>(RenameElement)
+map <leader>r <Action>(Run)
+map <leader>d <Action>(Debug)
+map <leader>c <Action>(Stop)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
+
+map gb <Action>(JumpToLastChange)
+map gd <Action>(GotoDeclaration)
+map gi <Action>(GotoImplementation)
+map gs <Action>(GotoSuperMethod)
+map gu <Action>(ShowUsages)
+map gh <Action>(Back)
+map gl <Action>(Forward)
+
+" Reformat the current line
+map <leader>fl V<Action>(ReformatCode)V
+map <leader>ff <Action>(ReformatCode)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>e <Action>(FileStructurePopup)
+
+" Change tabs
+map <A-h> gT
+map <A-l> gt
+
+""" Screen Management --------------------------
+set splitright
+set splitbelow
+
+map <leader>\ <C-w>v
+map <leader>- <C-w>s
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
