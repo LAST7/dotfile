@@ -3,7 +3,7 @@ tabspaces: 4
 
 # import the theme
 import:
-  - ~/.config/alacritty/nord.yaml
+  - ~/dotfile/alacritty/themes/catppuccin-mocha.yml
 
 env:
   TERM: xterm-256color
