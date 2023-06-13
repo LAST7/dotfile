@@ -27,6 +27,9 @@ bspc rule -a obs state=floating
 
 
 
+# show cursor theme set by lxappearance(need package xorg-xsetroot)
+xsetroot -cursor_name left_ptr &
+
 # feh wallpaper
 # feh --bg-scale ~/Pictures/wallpaper/Desktop.JPG
 feh --bg-scale --randomize ~/Pictures/wallpaper/*
