@@ -13,7 +13,7 @@ selection:
   save_to_clipboard: true
 
 window:
-  opacity: 0.8
+  opacity: 0.75
   dimensions:
     columns: 120
     lines: 30
