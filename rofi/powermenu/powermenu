@@ -19,7 +19,7 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 # Options
 shutdown=''
 reboot=''
-lock=''
+# lock=''
 suspend=''
 hibernate=''
 logout=''
@@ -39,7 +39,7 @@ rofi_cmd() {
 confirm_cmd() {
     rofi -dmenu \
         -p 'Confirmation' \
-        -mesg 'Are you Sure?' \
+        -mesg 'Confirm?' \
         -theme ${dir}/confirm.rasi
     }
 
@@ -50,7 +50,8 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-    echo -e "$shutdown\n$lock\n$reboot\n$logout\n$suspend\n$hibernate" | rofi_cmd
+    # echo -e "$shutdown\n$lock\n$reboot\n$logout\n$suspend\n$hibernate" | rofi_cmd
+    echo -e "$shutdown\n$reboot\n$logout\n$suspend\n$hibernate" | rofi_cmd
 }
 
 # Execute Command
@@ -95,13 +96,13 @@ case ${chosen} in
     $reboot)
         run_cmd --reboot
         ;;
-    $lock)
-        if [[ -x '/usr/bin/betterlockscreen' ]]; then
-            betterlockscreen -l dim
-        elif [[ -x '/usr/bin/i3lock' ]]; then
-            i3lock
-        fi
-        ;;
+    # $lock)
+    #     if [[ -x '/usr/bin/betterlockscreen' ]]; then
+    #         betterlockscreen -l dim
+    #     elif [[ -x '/usr/bin/i3lock' ]]; then
+    #         i3lock
+    #     fi
+    #     ;;
     $suspend)
         run_cmd --suspend
         ;;
