@@ -24,6 +24,7 @@ bspc rule -a gwenview state=floating center=true
 bspc rule -a alacritty state=floating center=true
 bspc rule -a neovide state=floating center=true
 bspc rule -a obs state=floating
+bspc rule -a uTools state=floating
 
 
 
