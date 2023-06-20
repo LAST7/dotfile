@@ -187,11 +187,10 @@ XF86AudioLowerVolume
 XF86AudioMute
     pactl set-sink-mute 4 toggle
 
-# add `%wheel ALL=(ALL:ALL) NOPASSWD: /usr/bin/light` to "/etc/sudoers.d/somefile"
 # lightnessUp
 XF86MonBrightnessUp
-    sudo light -A 5
+    brightnessctl s 5%+
 
 # lightnessDown
 XF86MonBrightnessDown
-    sudo light -U 5
+    brightnessctl s 5%-
