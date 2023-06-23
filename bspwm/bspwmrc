@@ -32,8 +32,8 @@ bspc rule -a uTools state=floating focus=on
 xsetroot -cursor_name left_ptr &
 
 # feh wallpaper
-# feh --bg-scale ~/Pictures/wallpaper/Desktop.JPG
-feh --bg-scale --randomize ~/Pictures/wallpaper/*
+feh --bg-scale ~/Pictures/wallpaper/MountainFog.jpg
+# feh --bg-scale --randomize ~/Pictures/wallpaper/*
 
 # picom
 picom -b --experimental-backends &
