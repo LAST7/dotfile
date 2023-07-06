@@ -4,14 +4,6 @@ export EDITOR='vim'
 # export http_proxy="http://127.0.0.1:7890"
 # export https_proxy="http://127.0.0.1:7890"
 
-
-# enable conda
-alias condaactivate=source /opt/anaconda/bin/activate root
-alias condadeactivate=source /opt/anaconda/bin/deactivate root
-
-# enable conda for all users
-# sudo ln -s /opt/miniconda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
-
 # oh-my-posh setup
 eval "$(oh-my-posh init zsh --config /home/last/dotfile/poshtheme/last.omp.json)"
 
@@ -91,3 +83,20 @@ compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/autojump/autojump.zsh
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/usr/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/last/Software/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/last/Software/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/home/last/Software/micromamba/etc/profile.d/micromamba.sh"
+    else
+        export  PATH="/home/last/Software/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
