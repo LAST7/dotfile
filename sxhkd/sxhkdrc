@@ -41,8 +41,6 @@ super + alt + {q,r}
     bspc {quit,wm -r}
 
 # close and kill
-# super + {w,q}
-#     bspc node -{c,k}
 super + {w,q}
     xdo {close,kill}
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Terminate already running bar instances
 killall -q polybar
@@ -6,8 +6,11 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
-# polybar example 2>&1 | tee -a /tmp/polybar.log & disown
-polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+# polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
 
+# For multiple monitors
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar --reload mybar &
+done
 
 echo "Polybar launched..."
