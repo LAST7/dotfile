@@ -62,7 +62,7 @@ alias nvimrtp="nvim --cmd 'set rtp+=.'"
 alias nvide="neovide && exit"
 
 # autoremove
-alias autoremove="sudo pacman -Rsn $(pacman -Qtdq)"
+alias autoremove="sudo pacman -Rsn $(pacman -Qtdq) && yay -Rsn $(yay -Qtdq)"
 # }}}
 
 

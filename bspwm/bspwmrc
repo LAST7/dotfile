@@ -56,8 +56,5 @@ udiskie &
 # flameshot
 flameshot &
 
-# utools
-utools &
-
 # polybar
 /home/last/.config/polybar/launch.sh
