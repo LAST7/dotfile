@@ -4,6 +4,9 @@ export EDITOR='vim'
 # export http_proxy="http://127.0.0.1:7890"
 # export https_proxy="http://127.0.0.1:7890"
 
+# npm local prefix
+export PATH=~/Software/npm-global/bin:$PATH
+
 # oh-my-posh setup
 eval "$(oh-my-posh init zsh --config /home/last/dotfile/poshtheme/last.omp.json)"
 
