@@ -8,8 +8,9 @@
 super + Return
     alacritty
 
-ctrl + alt + t
-    alacritty
+# floating terminal
+alt + @space
+    bspc rule -a Alacritty -o state=floating follow=on center=true && alacritty
 
 
 # program launcher
