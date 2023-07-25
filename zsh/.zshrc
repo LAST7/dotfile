@@ -21,6 +21,13 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias md="mkdir -p"
 alias cl="clear"
+alias sctl="sudo systemctl"
+
+alias nf="neofetch"
+alias lg="lazygit"
+
+# synchronize system time
+alias timesync="sudo ntpd -qg"
 
 # using expac to check the recent installed packages
 alias pachistory="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort -h"
