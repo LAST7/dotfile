@@ -26,6 +26,29 @@ alias sctl="sudo systemctl"
 alias nf="neofetch"
 alias lg="lazygit"
 
+# git log
+alias gitlg="git log --graph --oneline --all --decorate"
+
+# start nvim with the current folder in rtp
+alias nvimrtp="nvim --cmd 'set rtp+=.'"
+
+# open neovide and close the terminal
+alias nvide="neovide && exit"
+
+# autoremove
+alias autoremove="sudo pacman -Rsn $(pacman -Qtdq) && yay -Rsn $(yay -Qtdq)"
+
+# micromamba
+alias mm="micromamba"
+alias mmel="micromamba env list"
+
+alias mma="micromamba activate"
+alias mmd="micromamba deactivate"
+
+alias mmi="micromamba install"
+alias mmic="micromamba install -c conda-forge"
+alias mmid="micromamba install -c default"
+
 # synchronize system time
 alias timesync="sudo ntpd -qg"
 
@@ -61,18 +84,6 @@ if [[ $(command -v exa) ]] {
     alias ll='ls -lh'
     alias lsa='ls -lah'
 }
-
-# git log
-alias gitlg="git log --graph --oneline --all --decorate"
-
-# start nvim with the current folder in rtp
-alias nvimrtp="nvim --cmd 'set rtp+=.'"
-
-# open neovide and close the terminal
-alias nvide="neovide && exit"
-
-# autoremove
-alias autoremove="sudo pacman -Rsn $(pacman -Qtdq) && yay -Rsn $(yay -Qtdq)"
 # }}}
 
 
