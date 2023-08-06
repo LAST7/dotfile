@@ -31,6 +31,7 @@ bspc rule -a vlc state=floating center=true
 bspc rule -a feh state=floating center=true
 bspc rule -a gwenview state=floating center=true
 bspc rule -a obs state=floating
+bspc rule -a '*:*:Fcitx Configuration' state=floating center=true
 
 
 

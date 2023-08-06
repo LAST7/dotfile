@@ -6,3 +6,5 @@
     -   using `pacman`: `sudo pacman -S catppuccin-fcitx5-git`
 -   [nord](https://github.com/ayamir/fcitx5-nord)
     -   using `pacman`: `sudo pacman -S fcitx5-nord`
+-   [dracula](https://github.com/drbbr/fcitx5-dracula-theme)
+    -   install by manual
