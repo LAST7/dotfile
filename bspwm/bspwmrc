@@ -8,11 +8,11 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # use polybar --list-monitors to get monitor tags
 monitor_DP0=$(xrandr --query | grep 'DP-0')
-if [[ $monitor_DP0 = *connected* ]]; then
+if [[ $monitor_DP0 != *disconnected* ]]; then
     bspc monitor DP-2 -d I II III IV V VI
     bspc monitor DP-0 -d VII VIII IX
 else
-    bspc monitor -n I II III IV V VI VII VIII IX
+    bspc monitor -d I II III IV V VI VII VIII IX
 fi
 
 
@@ -29,7 +29,6 @@ bspc config focus_follows_pointer     true
 
 bspc rule -a vlc state=floating center=true
 bspc rule -a feh state=floating center=true
-bspc rule -a gwenview state=floating center=true
 bspc rule -a obs state=floating
 bspc rule -a '*:*:Fcitx Configuration' state=floating center=true
 
