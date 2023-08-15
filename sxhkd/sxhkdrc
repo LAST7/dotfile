@@ -150,9 +150,13 @@ super + alt + {h,l}
 # custom
 #
 
-# screenshot
+# screenshot to clipboard
 ctrl + alt + a
-    flameshot gui
+    maim --select | xclip -selection clipboard -target image/png
+
+# screenshot to file
+ctrl + alt + s
+    maim --select ~/Pictures/screenshot/$(date +%Y-%m-%d_%H-%M-%S_maim | tr A-Z a-z).png
 
 # move the floating focused window to center
 super + ctrl + c
