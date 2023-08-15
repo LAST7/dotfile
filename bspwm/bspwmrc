@@ -1,9 +1,5 @@
 #! /usr/bin/env zsh
 
-# fix java applications
-# https://wiki.archlinux.org/title/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closing
-export _JAVA_AWT_WM_NONREPARENTING=1
-
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # use polybar --list-monitors to get monitor tags
@@ -33,6 +29,9 @@ bspc rule -a obs state=floating
 bspc rule -a '*:*:Fcitx Configuration' state=floating center=true
 
 
+# fix java applications
+# https://wiki.archlinux.org/title/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closing
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Fix cursor
 xsetroot -cursor_name left_ptr &
