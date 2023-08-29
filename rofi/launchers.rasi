@@ -12,7 +12,7 @@
     background:     #2a273f;
     background-alt: #393552;
     foreground:     #e0def4;
-    selected:       #3e8fb0;
+    selected:       #89b4fa;
 }
 * {
     font: "Noto Sans 12";

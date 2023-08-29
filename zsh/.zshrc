@@ -10,9 +10,6 @@ export PATH=~/Software/npm-global/bin:$PATH
 # oh-my-posh setup
 eval "$(oh-my-posh init zsh --config /home/last/dotfile/poshtheme/last.omp.json)"
 
-# starship setup
-# eval "$(starship init zsh)"
-
 # alias{{{
 alias ..="cd .."
 alias ...="cd ../.."
