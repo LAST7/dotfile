@@ -76,8 +76,12 @@ super + ctrl + {x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,ctrl + }{h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# swap with the node in the given direction
+super + alt + {h,j,k,l}
+    ~/dotfile/script/bsmove {west,south,north,east}
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}
@@ -122,7 +126,7 @@ super + ctrl + space
     bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
+super + BackSpace
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
@@ -134,7 +138,7 @@ ctrl + alt + {h,j,k,l}
     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+alt + shift + {h,j,k,l}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
@@ -142,7 +146,7 @@ super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # send win to next or prev desktop and focus it
-super + alt + {h,l}
+super + ctrl + {h,l}
     DIR={prev.local,next.local}; \
     bspc node -d "$DIR" --follow
 
@@ -150,13 +154,17 @@ super + alt + {h,l}
 # custom
 #
 
+# lockscreen
+super + shift + l
+    ~/dotfile/script/betterlockscreen/lockscreen
+
 # screenshot to clipboard
 ctrl + alt + a
-    maim -u --select | xclip -selection clipboard -target image/png
+    ~/dotfile/script/ss clipboard
 
 # screenshot to file
 ctrl + alt + s
-    maim -u --select ~/Pictures/screenshot/$(date +%Y-%m-%d_%H-%M-%S_maim | tr A-Z a-z).png
+    ~/dotfile/script/ss save
 
 # move the floating focused window to center
 super + ctrl + c
@@ -177,11 +185,11 @@ ctrl + super + alt + p
 # Use `pactl list sinks` to find the active sound card(for example '4')
 # volumeUp
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume 4 {+,-}5%
+    ~/dotfile/script/volume_dunst {up,down}
 
 # Mute
 XF86AudioMute
-    pactl set-sink-mute 4 toggle
+    ~/dotfile/script/volume_dunst mute
 
 # lightness control
 XF86MonBrightness{Up,Down}

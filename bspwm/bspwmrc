@@ -63,4 +63,7 @@ fcitx5 &
 udiskie &
 
 # polybar
-/home/last/.config/polybar/launch.sh
+/home/last/.config/polybar/launch.sh &
+
+# setup timer for betterlockscreen
+/home/last/dotfile/script/betterlockscreen/idle &

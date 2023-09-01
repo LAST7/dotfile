@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+start=$SECONDS
+remaining_time=$(( 15 - (SECONDS - start) ))
+
+# if keyboard/mouse input detected, stop warning
+while [[ $remaining_time -gt 0 && $(xprintidle) -gt 2000 ]]; do
+    dunstify "betterlockscreen" "locking in $remaining_time" -t 1100 -r 99 -u low
+
+    sleep 1
+    remaining_time=$(( 15 - (SECONDS - start) ))
+done
+
+# info the user if the timer is stop by keyboard/mouse input
+if [[ $(xprintidle) -lt 2000 ]]; then
+    dunstify "betterlockscreen" "lock timer refreshed" -t 3000 -r 99 -u low
+fi

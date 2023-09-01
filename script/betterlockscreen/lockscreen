@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+# lock screen
+betterlockscreen -l dim

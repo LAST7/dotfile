@@ -1,0 +1,36 @@
+#!/bin/bash
+
+SAVE_PATH=$HOME/Pictures/screenshot/
+filename=$(date +%Y-%m-%d_%H-%M-%S_maim | tr A-Z a-z)
+
+mkdir -p "$SAVE_PATH" || true
+
+
+function notify() {
+    if [[ $1 == "save" && -f $SAVE_PATH/$filename.png ]]; then
+        dunstify "maim" "Screenshot saved to $SAVE_PATH" -u normal -t 3000 -i "$SAVE_PATH"/"$filename".png
+    elif [[ $1 == "clipboard" ]]; then
+        echo 1
+        dunstify "maim" "Screenshot taken to clipboard" -u normal -t 3000 -i "$(xclip -o -sel clip)"
+    fi
+}
+
+# check parameter
+if [[ -z $1 ]]; then
+    echo "No parameter."
+    exit 0
+fi
+
+case $1 in
+
+    save)
+        maim -su -b 2 ~/Pictures/screenshot/"$filename".png
+        notify save
+        ;;
+
+    clipboard)
+        maim -su -b 2 /tmp/img.png
+        echo "file:///tmp/img.png" | xclip -selection clipboard -target text/uri-list
+        notify clipboard
+
+esac

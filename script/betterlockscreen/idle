@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+dunstify "betterlockscreen" "lock timer started." -t 2000 -r 99 -u low
+
+# kill xautolock if it running
+pgrep xautolock > /dev/null && kill $(pgrep xautolock)
+
+# start the timer
+xautolock -time 10 -locker "$HOME"/dotfile/script/betterlockscreen/lockscreen -notify 15 -notifier "$HOME"/dotfile/script/betterlockscreen/lockwarn &

@@ -1,13 +1,14 @@
 #!/bin/bash
 
-DIR="$HOME/.config/dunst/icons"
+DIR="$HOME/dotfile/dunst/icons"
 
 function get_volume() {
-    amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
+    pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1 | sed 's#%##'
 }
 
 function is_mute() {
-    amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off
+    # amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off
+    pactl get-sink-mute @DEFAULT_SINK@ | grep yes
 }
 
 function send_notification() {
@@ -26,30 +27,30 @@ function send_notification() {
         fi
     fi
     # Send the notification
-    dunstify "$volume%  " -i $icon_name -r 5555 -u low -h int:value:$(($volume))
+    dunstify "$volume%  " -i "$icon_name" -r 5555 -u low -h int:value:"$volume"
 }
 
 case $1 in
     up)
         # Unmute
-        amixer -D pulse set Master on >/dev/null
+        pactl set-sink-mute @DEFAULT_SINK@ no
         # +2%
-        amixer -D pulse set Master 2%+ >/dev/null
+        pactl set-sink-volume @DEFAULT_SINK@ +2%
         send_notification
         ;;
     down)
         # Unmute
-        amixer -D pulse set Master on >/dev/null
+        pactl set-sink-mute @DEFAULT_SINK@ no
         # -2%
-        amixer -D pulse set Master 2%- >/dev/null
+        pactl set-sink-volume @DEFAULT_SINK@ -2%
         send_notification
         ;;
     mute)
         # Toggle mute
-        amixer -D pulse set Master 1+ toggle >/dev/null
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
         if is_mute; then
             icon_name="$DIR/notification-audio-volume-muted.svg"
-            dunstify "Muted  " -i $icon_name -r 5555 -u low -h string:synchronous:audio-volume
+            dunstify "Muted  " -i "$icon_name" -r 5555 -u low -h string:synchronous:audio-volume
         else
             send_notification
         fi
