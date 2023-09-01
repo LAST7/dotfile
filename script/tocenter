@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/bash
 # https://www.reddit.com/r/bspwm/comments/12ebz1n/move_window_to_center/
 
-if [ $(bspc query --node focused.floating.\!hidden.window.local --nodes | wc -l) -gt 0 ]; then
+if [ "$(bspc query --node focused.floating.\!hidden.window.local --nodes | wc -l)" -gt 0 ]; then
     floatwininfo=$(bspc query --node focused.floating.\!hidden.window.local --tree)
     floatwinxcoords=$(echo "$floatwininfo" | cut -d ":" -f38 | cut -d "," -f1)
     floatwinycoords=$(echo "$floatwininfo" | cut -d ":" -f39 | cut -d "," -f1)
