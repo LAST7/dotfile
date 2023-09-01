@@ -17,7 +17,7 @@ alt + @space
 # super + @space
 #   dmenu_run
 super + @space
-    rofi -modes "drun,window,run" -show drun
+    rofi -modes "drun,window,run,ssh" -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape

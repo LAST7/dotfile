@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-dunstify "betterlockscreen" "lock timer started." -t 2000 -r 99 -u low
+dunstify "betterlockscreen" "lock timer started." -t 2000 -r 99 -u normal
 
 # kill xautolock if it running
 pgrep xautolock > /dev/null && kill $(pgrep xautolock)

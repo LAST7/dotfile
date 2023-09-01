@@ -24,13 +24,12 @@ fi
 case $1 in
 
     save)
-        maim -su -b 2 ~/Pictures/screenshot/"$filename".png
-        notify save
+        maim -su -b 2 ~/Pictures/screenshot/"$filename".png && notify save
         ;;
 
     clipboard)
-        maim -su -b 2 /tmp/img.png
-        echo "file:///tmp/img.png" | xclip -selection clipboard -target text/uri-list
+        maim -su -b 2 /tmp/img.png && \
+        echo "file:///tmp/img.png" | xclip -selection clipboard -target text/uri-list && \
         notify clipboard
 
 esac
