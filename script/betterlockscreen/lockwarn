@@ -11,6 +11,9 @@ while [[ $remaining_time -gt 0 && $(xprintidle) -gt 2000 ]]; do
     remaining_time=$(( 15 - (SECONDS - start) ))
 done
 
+# close the last message to prevent it shows up after unlock
+dunstify -C 99
+
 # info the user if the timer is stop by keyboard/mouse input
 if [[ $(xprintidle) -lt 2000 ]]; then
     dunstify "betterlockscreen" "lock timer refreshed" -t 3000 -r 99 -u normal

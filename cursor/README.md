@@ -2,12 +2,18 @@
 
 ## theme
 
--   [Oreo-Nord-Border](https://www.pling.com/p/1708811)
+-   [Bibata](https://github.com/ful1e5/Bibata_Cursor)
 
 ## installation
 
--   install with `tar -xvf Oreo-Nord-Border.tar.xz -C ~/.icons`.
--   check [Cursor themes](https://wiki.archlinux.org/title/Cursor_themes) for more informations
+-   ~install with `tar -xvf xxx.tar.xz -C ~/.icons`.~
+-   ~check [Cursor themes](https://wiki.archlinux.org/title/Cursor_themes) for more informations~
+
+- install with pacman:
+
+```bash
+sudo pacman -S bibata-cursor-theme
+```
 
 ## check installed cursor theme
 
