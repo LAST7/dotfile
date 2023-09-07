@@ -1,4 +1,9 @@
 #!/usr/bin/bash
 
-# lock screen
-betterlockscreen -l dim
+# check lock status
+LOCKED=false && pgrep i3lock > /dev/null && LOCKED=true
+
+# do not lock screen if already locked
+if [[ $LOCKED == false ]]; then
+    betterlockscreen -l dim
+fi

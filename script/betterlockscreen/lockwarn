@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 
+# exit if already locked
+LOCKED=false && pgrep i3lock > /dev/null && LOCKED=true
+if [[ $LOCKED == true ]]; then
+    exit 1;
+fi
+
 start=$SECONDS
 remaining_time=$(( 15 - (SECONDS - start) ))
 

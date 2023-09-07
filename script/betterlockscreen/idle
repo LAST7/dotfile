@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
-dunstify "betterlockscreen" "lock timer started." -t 2000 -r 99 -u normal
-
-# kill xautolock if it running
+# kill xautolock if it is running
 pgrep xautolock > /dev/null && kill $(pgrep xautolock)
+
+# xset DPMS and Screen Saver
+xset s off && xset dpms 1200 1200 1800
 
 # start the timer
 xautolock -time 10 -locker "$HOME"/dotfile/script/betterlockscreen/lockscreen -notify 15 -notifier "$HOME"/dotfile/script/betterlockscreen/lockwarn &
