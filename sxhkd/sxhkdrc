@@ -180,7 +180,7 @@ super + minus
 
 # powermenu
 ctrl + super + alt + p
-    ~/.config/rofi/powermenu/powermenu
+    ~/dotfile/rofi/powermenu/powermenu
 
 # Use `pactl list sinks` to find the active sound card(for example '4')
 # volumeUp

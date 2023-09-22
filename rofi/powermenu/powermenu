@@ -10,18 +10,18 @@
 ## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="/home/last/.config/rofi/powermenu/"
+dir="/home/last/dotfile/rofi/powermenu/"
 theme='config'
 
 # CMDs
-uptime="`uptime -p | sed -e 's/up //g'`"
+uptime="$(uptime -p | sed -e 's/up //g')"
 
 # Options
 shutdown=''
 reboot=''
-# lock=''
+lock=''
 suspend=''
-hibernate=''
+# hibernate=''
 logout=''
 yes=''
 no=''
@@ -51,7 +51,7 @@ confirm_exit() {
 # Pass variables to rofi dmenu
 run_rofi() {
     # echo -e "$shutdown\n$lock\n$reboot\n$logout\n$suspend\n$hibernate" | rofi_cmd
-    echo -e "$shutdown\n$reboot\n$suspend\n$logout\n$hibernate" | rofi_cmd
+    echo -e "$shutdown\n$reboot\n$lock\n$suspend\n$logout" | rofi_cmd
 }
 
 # Execute Command
@@ -59,18 +59,25 @@ run_cmd() {
     selected="$(confirm_exit)"
     if [[ "$selected" == "$yes" ]]; then
         if [[ $1 == '--shutdown' ]]; then
-            mpc -q pause
+            # mpc -q pause
             systemctl poweroff
         elif [[ $1 == '--reboot' ]]; then
-            mpc -q pause
+            # mpc -q pause
             systemctl reboot
         elif [[ $1 == '--suspend' ]]; then
-            mpc -q pause
+            # mpc -q pause
             # amixer set Master mute
+            xautolock -locknow
+            sleep 1
             systemctl suspend
-        elif [[ $1 == '--hibernate' ]]; then
-            mpc -q pause
-            systemctl hibernate
+        elif [[ $1 == '--lock' ]]; then
+            # mpc -q pause
+            if [[ $(command -v betterlockscreen) ]]; then
+                ~/dotfile/script/betterlockscreen/lockscreen
+            else
+                dunstify "powermenu" "betterlockscreen not installed" \
+                    -t 5000 -r 99 -u normal
+            fi
         elif [[ $1 == '--logout' ]]; then
             if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
                 openbox --exit
@@ -90,26 +97,22 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
+    "$shutdown")
         run_cmd --shutdown
         ;;
-    $reboot)
+    "$reboot")
         run_cmd --reboot
         ;;
-    # $lock)
-    #     if [[ -x '/usr/bin/betterlockscreen' ]]; then
-    #         betterlockscreen -l dim
-    #     elif [[ -x '/usr/bin/i3lock' ]]; then
-    #         i3lock
-    #     fi
-    #     ;;
-    $suspend)
+    "$lock")
+        run_cmd --lock
+        ;;
+    "$suspend")
         run_cmd --suspend
         ;;
-    $hibernate)
-        run_cmd --hibernate
-        ;;
-    $logout)
+    # "$hibernate")
+    #     run_cmd --hibernate
+    #     ;;
+    "$logout")
         run_cmd --logout
         ;;
 esac
