@@ -33,7 +33,7 @@ alias nvimrtp="nvim --cmd 'set rtp+=.'"
 alias nvide="neovide && exit"
 
 # autoremove
-alias autoremove="sudo pacman -Rsn $(pacman -Qtdq) && yay -Rsn $(yay -Qtdq)"
+alias autoremove="yay -Rsn $(yay -Qtdq)"
 
 # micromamba
 alias mm="micromamba"
@@ -53,7 +53,7 @@ alias timesync="sudo ntpd -qg"
 alias pachistory="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort -h"
 
 # ls
-if [[ $(command -v exa) ]] {
+if [[ $(command -v eza) ]] {
     DISABLE_LS_COLORS=true
     unset LS_BIN_FILE
     for i (/bin/ls ${PREFIX}/bin/ls /usr/bin/ls /usr/local/bin/ls) {
@@ -65,13 +65,13 @@ if [[ $(command -v exa) ]] {
     [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
     alias lls=${LS_BIN_FILE} 
     # lls is the original ls.
-    alias ls="exa --color=auto" 
-    # Exa is a modern version of ls.
-    alias l='exa -lbah --icons'
-    alias la='exa -labgh --icons'
-    alias ll='exa -lbg --icons'
-    alias lsa='exa -lbagR --icons'
-    alias lst='exa -lTabgh --icons'
+    alias ls="eza --color=auto" 
+    # eza is a modern version of ls.
+    alias l='eza -lbah --icons'
+    alias la='eza -labgh --icons'
+    alias ll='eza -lbg --icons'
+    alias lsa='eza -lbagR --icons'
+    alias lst='eza -lTabgh --icons'
 } else {
     alias ls='ls --color=auto'
     # color should not be always.
