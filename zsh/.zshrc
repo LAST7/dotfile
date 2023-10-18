@@ -96,6 +96,8 @@ zstyle :compinstall filename '/home/last/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+# completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 # Enable the plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

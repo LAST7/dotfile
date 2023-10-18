@@ -6,11 +6,11 @@
 # super + Return
 #   urxvt
 super + Return
-    alacritty
+    kitty
 
 # floating terminal
 alt + @space
-    bspc rule -a Alacritty -o state=floating follow=on center=true && alacritty
+    bspc rule -a kitty -o state=floating follow=on center=true && kitty
 
 
 # program launcher

@@ -190,7 +190,7 @@
       "type": "prompt"
     }
   ],
-  "osc99": true,
+  "osc99": false,
   "transient_prompt": {
     "background": "transparent",
     "foreground": "#FEF5ED",
