@@ -71,7 +71,7 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "#7FD5EA",
-          "template": " \u202d\ufcd1 {{ .Full }} "
+          "template": " \u202d\ue626 {{ .Full }} "
         },
         {
           "type": "rust",
@@ -99,7 +99,7 @@
             "fetch_worktree_count": true
           },
           "style": "powerline",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#CAEBE1> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#CAEBE1> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "type": "git"
         }
       ],
@@ -155,8 +155,8 @@
           "leading_diamond": "<#00C7FC> \uf07b </><#B6D6F2> in </>",
           "properties": {
             "folder_icon": " \uf07c ",
-            "folder_separator_icon": " \uf554 ",
-            "home_icon": "\uf7db ",
+            "folder_separator_icon": " \uf061 ",
+            "home_icon": "\ueb06 ",
             "style": "agnoster_short",
             "max_depth": 3
           },
