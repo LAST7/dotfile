@@ -182,8 +182,7 @@ super + minus
 ctrl + super + alt + p
     ~/dotfile/rofi/powermenu/powermenu
 
-# Use `pactl list sinks` to find the active sound card(for example '4')
-# volumeUp
+# volume control
 XF86Audio{Raise,Lower}Volume
     ~/dotfile/script/volume_dunst {up,down}
 

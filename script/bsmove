@@ -33,18 +33,18 @@
 
 # Check if argument is a valid direction.
 case "$1" in
-	north|east|south|west)
-		dir="$1"
-		;;
-	*)
-		dunstify -t 3000 "Not a valid argument."
-		dunstify -t 3000 "Use one of: north,east,south,west"
-		exit 1
-		;;
+    north|east|south|west)
+        dir="$1"
+        ;;
+    *)
+        dunstify -t 3000 "Not a valid argument."
+        dunstify -t 3000 "Use one of: north,east,south,west"
+        exit 1
+        ;;
 esac
 
 _query_nodes() {
-	bspc query -N -n "$@"
+    bspc query -N -n "$@"
 }
 
 # Do not operate on floating windows!
@@ -54,11 +54,11 @@ receptacle="$(_query_nodes 'any.leaf.!window')"
 
 # This regulates the behaviour documented in the description.
 if [ -n "$(_query_nodes "${dir}.!floating")" ]; then
-	bspc node -s "$dir"
+    bspc node -s "$dir"
 elif [ -n "$receptacle" ]; then
-	bspc node focused -n "$receptacle" --follow
+    bspc node focused -n "$receptacle" --follow
 else
-	#bspc node @/ -p "$dir" -i && bspc node -n "$receptacle" --follow
-	true
+    #bspc node @/ -p "$dir" -i && bspc node -n "$receptacle" --follow
+    true
 fi
 

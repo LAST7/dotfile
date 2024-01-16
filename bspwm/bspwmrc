@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # use polybar --list-monitors to get monitor tags
 monitor_DP0=$(xrandr --query | grep 'DP-0')
-if [[ $monitor_DP0 != *disconnected* ]]; then
+if [[ $monitor_DP0 != /disconnected/ ]]; then
     bspc monitor DP-2 -d I II III IV V VI
     bspc monitor DP-0 -d VII VIII IX
 else
@@ -48,7 +48,7 @@ xsetroot -cursor_name left_ptr &
 # set `_JAVA_AWT_WM_NONREPARENTING=1` see /etc/environment
 
 # feh wallpaper
-feh --bg-scale ~/Pictures/wallpaper/LofiGirl.png
+feh --bg-scale ~/Pictures/wallpaper/Purple-Triangle-Mountain.png
 # feh --bg-scale --randomize ~/Pictures/wallpaper/*
 
 # picom
