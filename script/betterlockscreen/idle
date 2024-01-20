@@ -4,7 +4,8 @@
 pgrep xautolock > /dev/null && kill $(pgrep xautolock)
 
 # xset DPMS and Screen Saver
-xset s off && xset dpms 1200 1200 1800
+xset s off
+xset dpms 1800 1800 2400
 
 # start the timer
-xautolock -time 10 -locker "$HOME"/dotfile/script/betterlockscreen/lockscreen -notify 15 -notifier "$HOME"/dotfile/script/betterlockscreen/lockwarn &
+xautolock -time 20 -locker "$HOME"/dotfile/script/betterlockscreen/lockscreen -notify 15 -notifier "$HOME"/dotfile/script/betterlockscreen/lockwarn &
