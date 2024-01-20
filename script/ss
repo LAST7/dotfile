@@ -24,7 +24,9 @@ fi
 case $1 in
 
     save)
-        maim -su -b 2 ~/Pictures/screenshot/"$filename".png && notify save
+        maim -su -b 2 ~/Pictures/screenshot/"$filename".png && \
+        notify save && \
+        feh ~/Pictures/screenshot/"$filename".png
         ;;
 
     clipboard)
