@@ -35,6 +35,10 @@ alias nvide="neovide && exit"
 # autoremove
 alias autoremove="yay -Rsn $(yay -Qtdq)"
 
+# mariadb
+alias mdb="mariadb"
+alias mdbl="mariadb -u last -p"
+
 # micromamba
 alias mm="micromamba"
 alias mmel="micromamba env list"
@@ -102,6 +106,7 @@ kitty + complete setup zsh | source /dev/stdin
 # Enable the plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 source /usr/share/autojump/autojump.zsh
 # Enable custom scripts
 source /home/last/dotfile/script/zsh/fancy-ctrl-z.sh
