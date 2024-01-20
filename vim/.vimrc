@@ -44,3 +44,20 @@ set autoread
 set listchars=tab:>~,space:·,trail:■
 
 set wildmenu
+
+imap jj <Esc>
+
+nmap H ^
+vmap H ^
+nmap L $
+vmap L $
+
+nmap <C-u> 8k
+vmap <C-u> 8k
+nmap <C-d> 8j
+vmap <C-d> 8j
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
