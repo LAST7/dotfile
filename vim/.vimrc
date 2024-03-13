@@ -33,8 +33,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-set spell spelllang=en_us
-
 set autochdir
 
 set noerrorbells
