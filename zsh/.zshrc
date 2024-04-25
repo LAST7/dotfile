@@ -33,7 +33,7 @@ alias nvimrtp="nvim --cmd 'set rtp+=.'"
 alias nvide="neovide && exit"
 
 # autoremove
-alias autoremove="yay -Rsn $(yay -Qtdq)"
+alias autoremove="sudo pacman -Rsn $(pacman -Qtdq)"
 
 # mariadb
 alias mdb="mariadb"

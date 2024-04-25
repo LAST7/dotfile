@@ -2,9 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# use polybar --list-monitors to get monitor tags
-monitor_DP0=$(xrandr --query | grep 'DP-0')
-if [[ $monitor_DP0 != /disconnected/ ]]; then
+# TODO: use polybar --list-monitors to get monitor tags?
+if xrandr --query | grep -q 'DP-0 connected'; then
     bspc monitor DP-2 -d I II III IV V VI
     bspc monitor DP-0 -d VII VIII IX X
 else
@@ -13,8 +12,8 @@ fi
 
 
 # General config
-bspc config border_width             3
-bspc config window_gap               7
+bspc config border_width             2
+bspc config window_gap               12
 
 bspc config split_ratio              0.5
 bspc config borderless_monocle       true
@@ -33,7 +32,6 @@ bspc config normal_border_color  "#6c7086" # overlay0
 # Window Rules
 bspc rule -a vlc                    state  = floating center = true
 bspc rule -a feh                    state  = floating center = true
-bspc rule -a Mumble                 state  = floating
 bspc rule -a obs                    state  = floating
 bspc rule -a Rofi                   manage = off
 bspc rule -a dunst                  focus  = off
@@ -48,7 +46,7 @@ xsetroot -cursor_name left_ptr &
 # set `_JAVA_AWT_WM_NONREPARENTING=1` see /etc/environment
 
 # feh wallpaper
-feh --bg-scale ~/Pictures/wallpaper/Mountain.jpeg
+feh --bg-scale ~/Pictures/wallpaper/Mountain.jpeg &
 # feh --bg-scale --randomize ~/Pictures/wallpaper/*
 
 # picom

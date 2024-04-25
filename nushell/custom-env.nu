@@ -4,6 +4,8 @@ $env.NU_LIB_DIRS = [
     ($env.NUPM_HOME | path join "modules")
 ]
 
+$env.EDITOR = "nvim"
+
 $env.PATH = ($env.PATH |
     split row (char esep) |
     # npm global prefix
